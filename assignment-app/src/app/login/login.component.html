@@ -1,0 +1,78 @@
+<div class="col-md-12">
+    <div class="card card-container">
+        <img id="profile-img"
+        class="profile-img-card"
+        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+
+        <p id="profile-name" class="profile-name-card"></p>
+
+        <form *ngIf="!isLoggedIn"
+        name="form"
+        #f="ngForm"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        novalidate>
+
+            <div class="form-group">
+                <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+                <mat-label for="username">Username</mat-label>
+                <input matInput #usernameInput type="text"
+                class="form-control"
+                placeholder="xXdimitriXx"
+                name="username"
+                required
+                [(ngModel)]="form.username"
+                #username="ngModel"
+                minlength="3"
+                maxlength="20">
+                <mat-hint align="end">{{usernameInput.value.length}}/20</mat-hint>
+            </mat-form-field>
+
+                <div class="alert-danger" *ngIf="username.invalid && (username.dirty || username.touched) && f.submitted">
+                    <div *ngIf="username.errors['required']">
+                        Username is required.
+                    </div>
+                    <div *ngIf="username.errors['min-length']">
+                        Username must be at least 3 characters long.
+                    </div>
+                    <div *ngIf="username.errors['max-length']">
+                        Username cannot be more than 20 characters long.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password"
+                class="form-control"
+                placeholder="Password"
+                name="password"
+                required
+                [(ngModel)]="form.password"
+                #password="ngModel"
+                minlength="9" >
+
+                <div class="alert-danger" *ngIf="password.invalid && (password.dirty || password.touched) && f.submitted">
+                    <div *ngIf="password.errors['required']">
+                        Password is required.
+                    </div>
+                    <div *ngIf="password.errors['min-length']">
+                        Password must be at least 9 characters long.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">Login</button>
+            </div>
+
+            <div class="alert alert-danger"
+                    role="alert"
+                    *ngIf="isLoginFailed && f.submitted">
+                    Login Failed : {{errorMessage}}
+            </div>
+        </form>
+        <div class="alert alert-success" *ngIf="isLoggedIn">
+            Login Successful
+        </div>
+    </div>
+</div>

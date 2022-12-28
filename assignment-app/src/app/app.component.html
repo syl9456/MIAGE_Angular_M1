@@ -1,0 +1,31 @@
+<div *ngIf="!isLoggedIn">
+  <button mat-button color="raised" routerLink="login">Login</button>
+  <button mat-button color="raised" routerLink="register">Register</button>
+</div>
+
+<div *ngIf="isLoggedIn">
+  <p>{{ username }}</p>
+  <button id="logout" mat-button color="primary" (click)="logout()">Deconnexion</button>
+</div>
+
+<div *ngIf="isAdmin">
+  <button mat-raised-button color="accent" (click)="peuplerBD()">Peupler BD</button>
+</div>
+
+<div class="ajouterBtn" *ngIf="isUser">
+  <a routerLink="/add">
+      <button mat-flat-button color="accent">
+          Ajouter Assignment
+      </button>
+  </a>
+</div>
+
+<h1 align="center">
+  <nav>
+    <a class="title" routerLink="/home">{{title}}</a>
+  </nav>
+</h1>
+
+
+<router-outlet></router-outlet>
+
