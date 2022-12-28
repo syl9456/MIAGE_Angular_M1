@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  hidePass = true;
   form:any = {};
   isSuccessful = false;
   isSignUpFailed = false;

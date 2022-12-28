@@ -1,13 +1,6 @@
-div{
-  alignment: center;
-  margin-bottom: 2%;
-}
-
 #profile-img{
   border-radius: 50%;
-  box-shadow: 5px 7px rgb(0, 0, 0, 0.25);
 }
-
 
 .form-control{
   margin-left: 10px;
@@ -15,10 +8,21 @@ div{
 }
 
 button{
-  background-color: rgb(23, 44, 20);
-  color: white;
   margin: 10px;
   border-radius: 8px;
 
-  box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 3px rgb(11, 22, 10, 0.25);
 }
+
+.main-div{
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-card{
+  text-align: center;
+  width:20%;
+}
+

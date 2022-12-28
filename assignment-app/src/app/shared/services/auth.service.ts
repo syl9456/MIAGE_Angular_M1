@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-  isLogged = false;
+  
   constructor(private http:HttpClient,
               private tokenStorageService:TokenStorageService) { }
 
@@ -32,9 +32,9 @@ export class AuthService {
     }, httpOptions);
   }
 
-  //fonction qui retourne un booléen si l'utilisateur est admin ou non, en regardant son role est admin 
+  //fonctions qui retourne un booléen si l'utilisateur est admin, user, moderatoeur ou non, en regardant son role
   isAdmin(): boolean {
-    if(this.isLogged){
+    if(!!this.tokenStorageService.getToken()){
       if(this.tokenStorageService.getRoles().includes("ROLE_ADMIN")){
         return true;
       } else {
@@ -45,7 +45,7 @@ export class AuthService {
   
 
   isUser(): boolean {
-    if(this.isLogged){
+    if(!!this.tokenStorageService.getToken()){
       if(this.tokenStorageService.getRoles().includes("ROLE_USER")){
         return true;
       } else {
@@ -55,7 +55,7 @@ export class AuthService {
   }
     
   isModerator(): boolean {
-    if(this.isLogged){
+    if(!!this.tokenStorageService.getToken()){
       if(this.tokenStorageService.getRoles().includes("ROLE_MODERATOR")){
         return true;
       }
@@ -63,13 +63,5 @@ export class AuthService {
         return false;
       }
     } else return false;
-  }
-
-  actualiser(){
-    if(this.tokenStorageService.getToken()){
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
   }
 }

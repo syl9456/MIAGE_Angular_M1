@@ -9,6 +9,7 @@ import { TokenStorageService } from '../shared/services/token-storage.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  hidePass = true;
   form:any= {};
   isLoggedIn = false;
   isLoginFailed = false;
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.authService.actualiser();
+
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
         console.log("Utilisateur connecté ");
