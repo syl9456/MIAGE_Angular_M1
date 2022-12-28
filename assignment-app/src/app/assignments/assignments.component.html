@@ -1,8 +1,16 @@
 <main class="container">
 
     <h1>Liste des devoirs a rendre :</h1>
-    <p>Nombre total d'assignments : {{totalDocs}} </p>
-    <p>Nombre total de pages : {{totalPages}} </p>
+    <mat-paginator
+        [length]="totalDocs"
+        [pageSize]="limit"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        [showFirstLastButtons]="true"
+        aria-label="Select page"
+        (page)="handlePageEvent($event)"
+        >
+    </mat-paginator>
+    
     <mat-list *ngFor="let a of assignments">
         <nav>
             <mat-list-item (click)="assignmentClick(a)" routerLink="/assignment/{{a.id}}">
@@ -13,14 +21,4 @@
             </mat-list-item>
         </nav>
     </mat-list>
-
-    <mat-paginator
-        [length]="totalDocs"
-        [pageSize]="limit"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-        [showFirstLastButtons]="true"
-        aria-label="Select page"
-        (page)="handlePageEvent($event)"
-        >
-    </mat-paginator>
 </main>

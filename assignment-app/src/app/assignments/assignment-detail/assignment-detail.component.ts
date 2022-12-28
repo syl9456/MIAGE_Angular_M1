@@ -12,8 +12,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 
 export class AssignmentDetailComponent implements OnInit {
-  /*@Input()*/ assignmentTransmis: Assignment;
-  /*@Output() suppAssignment  = new EventEmitter<Assignment>();*/
+  assignmentTransmis: Assignment;
+
 
   constructor(private assignmentsService: AssignmentsService,
               private route:ActivatedRoute,
@@ -24,14 +24,19 @@ export class AssignmentDetailComponent implements OnInit {
     this.getAssignment();
   }
 
+
+  //fonctions de vérification de l'utilisateur
   isAdmin():boolean {
     return this.authService.isAdmin();
   }
-
+  isModerator():boolean {
+    return this.authService.isModerator();
+  }
   isUser():boolean {
     return this.authService.isUser();
   }
 
+  //fonction de récupération d'un assignment
   getAssignment(){
     const id = +this.route.snapshot.params['id'];
     console.log(id);
@@ -42,6 +47,7 @@ export class AssignmentDetailComponent implements OnInit {
     });
   }
   
+  //fonction de la mise à jour d'un assignment sur rendu
   onAssignmentRendu(){
     if (!this.assignmentTransmis) return;
 
@@ -54,6 +60,7 @@ export class AssignmentDetailComponent implements OnInit {
       });
   }
 
+  // fonction destinée à supprimer un assignment 
   onDelete(){
     if(!this.assignmentTransmis) return;
 

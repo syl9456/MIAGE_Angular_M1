@@ -12,7 +12,7 @@ export class ButtonOverviewExample {}
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Application de gestion des devoirs à rendre (Assignments)';
+  title = 'Assignment App';
   private roles: string[];
   isLoggedIn = false;
   isAdmin = false;
@@ -59,7 +59,6 @@ export class AppComponent {
 
     logout(): void {
       this.tokenStorageService.signOut();
-      this.authService.actualiser();
       window.location.reload();
     }
 }

@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component'
@@ -47,7 +48,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatDatepickerModule, MatNativeDateModule, MatListModule,
     MatCardModule, MatCheckboxModule, MatSlideToggleModule,
     FormsModule, HttpClientModule, MatPaginatorModule,
-    AppRoutingModule
+    AppRoutingModule, MatToolbarModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
