@@ -4,7 +4,11 @@
 
 - Prérequis
 
-Installer le projet, node-js et npm
+Installer le projet `git clone https://github.com/syl9456/MIAGE_Angular_M1.git`
+
+Installer node-js -> https://nodejs.org/en/
+
+Télécharger npm puis lancer la commande `npm install` dans le package "assignment-app"
 
 - Dans le dossier "/api_assignment"
 
