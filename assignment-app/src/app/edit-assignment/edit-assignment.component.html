@@ -10,7 +10,17 @@
         </mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <button mat-raised-button color="primary" [disabled]="((!nomAssignment)||(!dateDeRendu))">
+      <!--<mat-form-field>
+        <input matInput placeholder="Edition de la matière" [(ngModel)]="matiere" name="matiere">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Edition de la remarque" [(ngModel)]="remarque" name="remarque">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Edition de la note" [(ngModel)]="note" name="note">
+      </mat-form-field>
+    -->
+      <button mat-raised-button color="primary" [disabled]="((!nomAssignment)||(!dateDeRendu))"> <!-- ||!matiere||!auteur||!remarque||!note -->
         Sauver
       </button>
     </form>

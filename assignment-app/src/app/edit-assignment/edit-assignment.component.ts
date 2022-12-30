@@ -12,6 +12,9 @@ export class EditAssignmentComponent implements OnInit {
  assignment!: Assignment | undefined;
  nomAssignment!: string;
  dateDeRendu!: Date;
+ //Note!: number;
+ //remarque!: string;
+ //matiere!: string;
 
  constructor(
    private assignmentsService: AssignmentsService,
@@ -34,6 +37,9 @@ export class EditAssignmentComponent implements OnInit {
     // Pour pré-remplir le formulaire
     this.nomAssignment = assignment.nom;
     this.dateDeRendu = assignment.dateDeRendu;
+    //this.Note = assignment.Note;
+    //this.remarque = assignment.remarque;
+    //this.matiere = assignment.matiere;
   });
 }
 onSaveAssignment() {
@@ -54,7 +60,7 @@ onSaveAssignment() {
       console.log(message);
 
       // navigation vers la home page
-      this.router.navigate(['/home'], {replaceUrl:true});
+      this.router.navigate(['home'], {replaceUrl:true});
     });
 }
 }
