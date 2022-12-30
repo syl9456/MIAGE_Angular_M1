@@ -5,5 +5,9 @@ export class Assignment {
     nom:string;
     dateDeRendu:Date;
     rendu:boolean;
+    //autheur:string;
+    //note:number;
+    //remarque:string;
+    //matiere:string;
 }
 

@@ -12,6 +12,9 @@ export class AddAssignmentComponent implements OnInit {
   //@Output() nouvelAssignment  = new EventEmitter<Assignment>();
   nomDevoir:string = "";
   dateDeRendu:Date;
+  //Note:number;
+  //remarque:string = "";
+  //matiere:string = "";
 
   constructor(private assignmentsService: AssignmentsService,
               private router: Router){}
@@ -22,13 +25,17 @@ export class AddAssignmentComponent implements OnInit {
     newAssignment.nom = this.nomDevoir;
     newAssignment.dateDeRendu = this.dateDeRendu;
     newAssignment.rendu = false;
+    //newAssignment.autheur = this.authService.userValue.username;
+    //newAssignment.note = this.Note;
+    //newAssignment.remarque = this.remarque;
+    //newAssignment.matiere = this.matiere;
 
     //this.nouvelAssignment.emit(newAssignment);
 
     this.assignmentsService.addAssignments(newAssignment)
     .subscribe(reponse => console.log(reponse.message));
 
-    this.router.navigate(['/home'], {replaceUrl:true});
+    this.router.navigate(['home'], {replaceUrl:true});
   }
 
   ngOnInit(): void {

@@ -69,7 +69,7 @@ export class AssignmentDetailComponent implements OnInit {
     {
       console.log(message);
       this.assignmentTransmis = null;
-      this.router.navigate(["/home"], {replaceUrl:true});
+      this.router.navigate(["home"], {replaceUrl:true});
     });
   }
 }
