@@ -1,10 +1,14 @@
 <form ngForm #assignmentForm class="form">
     <mat-form-field>
-        <input matInput [(ngModel)]="nomDevoir" name="nom" placeholder="Nom du devoir">
+        <input matInput [(ngModel)]="nomDevoir" name="nom" placeholder="Nom du devoir" required>
     </mat-form-field>
 
     <mat-form-field>
-        <input matInput [matDatepicker]="picker" [(ngModel)]="dateDeRendu"  name="date" placeholder="JJ-MM-AAAA">
+        <input matInput [(ngModel)]="matiere" name="matiere" placeholder="Matière" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="dateDeRendu"  name="date" placeholder="JJ-MM-AAAA" required>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>

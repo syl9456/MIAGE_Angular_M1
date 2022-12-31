@@ -9,59 +9,68 @@ import { Assignment } from '../assignments/assignment.model';
  styleUrls: ['./edit-assignment.component.css'],
 })
 export class EditAssignmentComponent implements OnInit {
- assignment!: Assignment | undefined;
- nomAssignment!: string;
- dateDeRendu!: Date;
- //Note!: number;
- //remarque!: string;
- //matiere!: string;
+  assignment!: Assignment | undefined;
+  nomAssignment!: string;
+  dateDeRendu!: Date;
+  note!: number;
+  remarque!: string;
+  matiere!: string;
 
- constructor(
-   private assignmentsService: AssignmentsService,
-   private route: ActivatedRoute,
-   private router: Router
- ) {}
+  constructor(
+    private assignmentsService: AssignmentsService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
- ngOnInit(): void {
-   this.getAssignment();
- }
+  ngOnInit(): void {
+    this.getAssignment();
+  }
 
- getAssignment() {
+  getAssignment() {
   // on récupère l'id dans le snapshot passé par le routeur
   // le "+" force l'id de type string en "number"
   const id = +this.route.snapshot.params['id'];
- 
+
   this.assignmentsService.getAssignment(id).subscribe((assignment) => {
     if (!assignment) return;
     this.assignment = assignment;
     // Pour pré-remplir le formulaire
     this.nomAssignment = assignment.nom;
     this.dateDeRendu = assignment.dateDeRendu;
-    //this.Note = assignment.Note;
-    //this.remarque = assignment.remarque;
-    //this.matiere = assignment.matiere;
+    this.note = assignment.note;
+    this.remarque = assignment.remarque;
   });
-}
-onSaveAssignment() {
-  if (!this.assignment) return;
-
-  // on récupère les valeurs dans le formulaire
-  if(this.nomAssignment){
-    this.assignment.nom = this.nomAssignment;
   }
 
-  if(this.dateDeRendu){
-    this.assignment.dateDeRendu = this.dateDeRendu;
+  // fonction de la mise à jour d'un assignment
+  onSaveAssignment() {
+    if (!this.assignment) return;
+
+    // on récupère les valeurs dans le formulaire
+    if(this.nomAssignment){
+      this.assignment.nom = this.nomAssignment;
+    }
+
+    if(this.dateDeRendu){
+      this.assignment.dateDeRendu = this.dateDeRendu;
+    }
+
+    if(this.note){
+      this.assignment.note = this.note;
+    }
+
+    if(this.remarque){
+      this.assignment.remarque = this.remarque;
+    }
+
+    this.assignmentsService
+      .updateAssignment(this.assignment)
+      .subscribe((message) => {
+        console.log(message);
+
+        // navigation vers la home page
+        this.router.navigate(['home'], {replaceUrl:true});
+      });
   }
-
-  this.assignmentsService
-    .updateAssignment(this.assignment)
-    .subscribe((message) => {
-      console.log(message);
-
-      // navigation vers la home page
-      this.router.navigate(['home'], {replaceUrl:true});
-    });
-}
 }
 

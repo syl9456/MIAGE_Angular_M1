@@ -28,18 +28,18 @@ export class AssignmentsService {
     })
   }
 
+  // récupération de la liste des assignments
   getAssignments():Observable<Assignment[]> {
     return this.http.get<Assignment[]>(this.url);
-    //return of(this.assignments);
   }
 
+  // récupération d'une page d'assignments
   getAssignmentsPagine(page:number, limit:number):Observable<any> {
     return this.http.get<any>(this.url + "?page=" + page + "&limit=" + limit);
   }
 
+  // récupération d'un assignment par son id
   getAssignment(id:number) : Observable<Assignment|undefined>{
-    //const a:Assignment|undefined = this.assignments.find(a => a.id === id);
-    //return of(a);
 
     console.log("det by id id = " + id);
     return this.http.get<Assignment>(this.url + "/" + id)
@@ -65,37 +65,24 @@ export class AssignmentsService {
   };
   }
 
+  // ajout d'un assignment dans la liste des assignments de la classe AssignmentService
   addAssignments(assignment: Assignment): Observable<any> {
-    //this.assignments.push(assignment);
-    //this.loggingService.log(assignment.nom, "ajouté");
-
-    //return of("Assignment ajouté");
-
     return this.http.post<Assignment>(this.url, assignment);
   }
 
+  // effacement d'un assignment par son id
   deleteAssignment(assignment: Assignment): Observable<any>{
-    //let pos = this.assignments.indexOf(assignment);
-    //this.assignments.splice(pos,1);
-    //this.loggingService.log(assignment.nom, "supprimé ! ");
-
-    //return of("Assignment supprimé");
 
     let deleteURI =  this.url + "/" + assignment._id;
     return this.http.delete(deleteURI);
   }
 
-  updateAssignment(assignment:Assignment): Observable<any> {
-    //let index = this.assignments.findIndex(elementAssignments => elementAssignments.id === assignment.id);
-    //this.assignments[index] = assignment;
-
-    //return of("Assignment service: assignment modifié")
-    //this.loggingService.log(assignment.nom, "Modifié !");
-    //return of("Assignment modifié");
-    
+  // mise à jour d'un assignment par son id
+  updateAssignment(assignment:Assignment): Observable<any> { 
     return this.http.put<Assignment>(this.url,assignment);
   }
 
+  // pour peupler la base de données avec les assignments du tableau bdInitialAssignments
   peuplerBDAvecForkJoin(): Observable<any> {
     const appelsVersAddAssignment:any = [];
  
@@ -105,11 +92,11 @@ export class AssignmentsService {
       nouvelAssignment.id = a.id;
       nouvelAssignment.nom = a.nom;
       nouvelAssignment.dateDeRendu = new Date(a.dateDeRendu);
-      nouvelAssignment.rendu = a.rendu;
-      /*nouvelAssignment.auteur = a.auteur;
-      nouvelAssignment.note = a.note;
+      nouvelAssignment.rendu = false;
+      nouvelAssignment.auteur = a.auteur;
+      nouvelAssignment.note = -1;
       nouvelAssignment.remarque = a.remarque;
-      nouvelAssignment.matiere = a.matiere;*/
+      nouvelAssignment.matiere = a.matiere;
  
       appelsVersAddAssignment.push(this.addAssignments(nouvelAssignment));
     });
