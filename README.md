@@ -10,17 +10,9 @@ Installer node-js -> https://nodejs.org/en/
 
 Télécharger npm puis lancer la commande `npm install` dans le package "assignment-app"
 
-- Dans le dossier "/api_assignment"
+- Pour lancer : 
 
-Ce rendre dans le package `cd /api_assignment`
-Puis lancer la commande suivante `node server.js`
+Se rendre dans le dossier souche et lancer le fichier run.bat
+Il appelle les fichiers run.bat pour les apis et l'application
 
-- Dans le dossier "/api_auth"
 
-Ce rendre dans le package `cd /api_auth`
-Puis lancer la commande suivante `node server.js`
-
-- Dans le dossier "/assignment-app"
-
-Ce rendre dans le package `cd /assignment-app`
-Puis lancer la commande suivante `ng serve`

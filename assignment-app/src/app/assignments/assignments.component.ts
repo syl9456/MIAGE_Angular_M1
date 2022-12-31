@@ -29,23 +29,7 @@ export class AssignmentsComponent implements OnInit {
               private router: Router
               /*private route:ActivatedRoute*/) { }
   
-  ngOnInit(): void {
-    //this.getAssignments();
-
-    //this.route.queryParams.subscribe(params => {
-      //console.log("Query Params: ");
-      //console.log(params);
-    //});
-
-    //this.route.fragment.subscribe(fragment => {
-      //console.log("Fragments: ");
-      //console.log(fragment);
-    //});
-
-
-    //console.log("Query Params: " + this.route.snapshot.queryParams);
-    //console.log("Fragment : " + this.route.snapshot.fragment);
-    
+  ngOnInit(): void {    
     this.getAssignments();   
   }
 

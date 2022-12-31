@@ -17,6 +17,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { Component }  from '@angular/core';
 
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component'

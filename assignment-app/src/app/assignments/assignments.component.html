@@ -12,13 +12,22 @@
     </mat-paginator>
     
     <mat-list *ngFor="let a of assignments">
-        <nav>
-            <mat-list-item (click)="assignmentClick(a)" routerLink="/assignment/{{a.id}}">
-                <span matListItemTitle>{{a.nom}}</span>
-                <span matListItemLine>{{a.dateDeRendu|date}}</span>
-                <span matListItemLine>Rendu : {{a.rendu}}.</span>
+        <mat-list-item *ngIf="a.rendu" (click)="assignmentClick(a)" routerLink="/assignment/{{a.id}}" lines="6" class="rendu">
+                <h1 matLine>{{a.nom}} : {{a.matiere}}</h1>
+                <mat-icon matListIcon>check</mat-icon>
+                <span matLine>{{a.dateDeRendu | date}}</span>
+                <span matLine>Devoir rendu.</span>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+
+        <mat-list-item *ngIf="!a.rendu" (click)="assignmentClick(a)" routerLink="/assignment/{{a.id}}" lines="6" class="nonRendu">
+            <mat-icon matListIcon >cancel</mat-icon>
+                <h1 matLine>{{a.nom}} : {{a.matiere}}</h1>
+                <span matLine>{{a.dateDeRendu | date}}</span>
+                <span matLine>Devoir non rendu.</span>
                 <mat-divider></mat-divider>
-            </mat-list-item>
-        </nav>
+        </mat-list-item>
+
+
     </mat-list>
 </main>
