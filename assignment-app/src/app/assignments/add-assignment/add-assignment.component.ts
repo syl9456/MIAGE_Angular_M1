@@ -27,7 +27,7 @@ export class AddAssignmentComponent implements OnInit {
     newAssignment.nom = this.nomDevoir;
     newAssignment.dateDeRendu = this.dateDeRendu;
     newAssignment.rendu = false;
-    newAssignment.autheur = this.tokenStorageService.getUser().username;
+    newAssignment.auteur = this.tokenStorageService.getUser().username;
     newAssignment.note = -1;
     newAssignment.remarque = this.remarque;
     newAssignment.matiere = this.matiere;

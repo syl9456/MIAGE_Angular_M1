@@ -38,6 +38,5 @@ export class RegisterComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
-    this.router.navigate(['home'], {replaceUrl:true});
   }
 }
