@@ -37,8 +37,13 @@ export class EditAssignmentComponent implements OnInit {
     // Pour pré-remplir le formulaire
     this.nomAssignment = assignment.nom;
     this.dateDeRendu = assignment.dateDeRendu;
-    this.note = assignment.note;
     this.remarque = assignment.remarque;
+
+    if (assignment.note == -1) {
+      this.note = null;
+    } else {
+      this.note = assignment.note;
+    }
   });
   }
 

@@ -30,12 +30,11 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.authService.login(this.form).subscribe(
       data => {
+        console.log(data);
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
         console.log("Utilisateur connecté ");
@@ -49,6 +48,5 @@ export class LoginComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
-    this.router.navigate(['home'], {replaceUrl:true});
   }
 }

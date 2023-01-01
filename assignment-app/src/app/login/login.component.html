@@ -11,12 +11,11 @@
         <mat-card-content>
             <form *ngIf="!isLoggedIn"
             name="form"
-            class="form"
             #f="ngForm"
             (ngSubmit)="f.form.valid && onSubmit()"
             novalidate>
 
-                <div>
+                <div lass="form-input">
                     <mat-form-field hintLabel="Max 20 caracteres" appearance="fill">
                         <mat-label for="username">Username</mat-label>
                         <input matInput 
@@ -34,7 +33,7 @@
                     </mat-form-field>
                 </div>
 
-                <div>
+                <div lass="form-input">
                     <mat-form-field hintLabel="Min 9 caracteres" appearance="fill">
                         <mat-label for="password">Password</mat-label>
                         <input 
@@ -59,10 +58,9 @@
 
                 <div>
                     <button mat-button color="primary" type="submit">Login</button>
-                </div>
-
-                <div *ngIf="isLoginFailed && f.submitted">
+                    <div *ngIf="isLoginFailed && f.submitted">
                         Login Failed : {{errorMessage}}
+                    </div>
                 </div>
 
             </form>
@@ -70,7 +68,6 @@
                 Login Successful
             </div>
         </mat-card-content>
-        
     </mat-card>
 </div>
 
