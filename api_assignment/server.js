@@ -2,6 +2,7 @@ let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');
 let assignment = require('./routes/assignments');
+const cors = require("cors");
 
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -16,6 +17,20 @@ const options = {
   useFindAndModify:false
 };
 
+var corsOptions = {
+  origin: "https://main--sweet-syrniki-c708aa.netlify.app"
+};
+
+
+// On autorise les connexions cross-domain (CORS)
+app.use(cors(corsOptions));
+
+// parse requests of content-type - application/json
+app.use(express.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
 // On se connecte à la base de données
 mongoose.connect(uri, options)
   .then(() => {
@@ -25,14 +40,6 @@ mongoose.connect(uri, options)
     },
     err => {
       console.log('Erreur de connexion: ', err);
-    });
-
-// Pour accepter les connexions cross-domain (CORS)
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  next();
 });
 
 // Pour les formulaires
