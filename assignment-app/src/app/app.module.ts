@@ -17,7 +17,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Component }  from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component'
@@ -49,7 +52,9 @@ import { AppRoutingModule } from './app-routing.module';
     MatDatepickerModule, MatNativeDateModule, MatListModule,
     MatCardModule, MatCheckboxModule, MatSlideToggleModule,
     FormsModule, HttpClientModule, MatPaginatorModule,
-    AppRoutingModule, MatToolbarModule
+    AppRoutingModule, MatToolbarModule, 
+    MatTableModule, MatSortModule, MatExpansionModule,
+    MatGridListModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
