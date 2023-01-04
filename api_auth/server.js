@@ -7,7 +7,7 @@ const Role = db.role;
 
 
 var corsOptions = {
-  origin: "http://localhost:4200"
+  origin: "https://main--sweet-syrniki-c708aa.netlify.app"
 };
 
 // On autorise les connexions cross-domain (CORS)
@@ -48,7 +48,7 @@ require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);
 
 // initialisation des ports et du serveur
-const port = process.env.port || 8020;
+const port = process.env.PORT || 8020;
 app.listen(port, () => {
   console.log('Serveur démarré sur http://localhost:' + port);
 });
