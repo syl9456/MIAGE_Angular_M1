@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Assignment } from '../assignment.model';
 import { AssignmentsService } from 'src/app/shared/services/assignments.service';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
 @Component({
