@@ -18,7 +18,10 @@ const options = {
 };
 
 var corsOptions = {
-  origin: "https://main--sweet-syrniki-c708aa.netlify.app"
+  origin: "*",
+  methods: "*",
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 };
 
 
