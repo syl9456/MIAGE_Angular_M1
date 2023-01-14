@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -26,7 +25,7 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        this.reloadPage();
+        this.router.navigate(['/register']);
         console.log("Utilisateur inscrit ");
       },
       err => {
@@ -34,9 +33,5 @@ export class RegisterComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     );
-  }
-
-  reloadPage(): void {
-    window.location.reload();
   }
 }

@@ -57,7 +57,7 @@
                 </div>
 
                 <div>
-                    <button mat-button color="primary" type="submit">Se connecter</button>
+                    <button mat-raised-button color="accent" type="submit">Se connecter</button>
                     <div *ngIf="isLoginFailed && f.submitted">
                         Erreur connexion : {{errorMessage}}
                     </div>
@@ -66,11 +66,12 @@
             </form>
             <div *ngIf="isLoggedIn">
                 Connexion réussie !
+                <button mat-raised-button color="accent" routerLink="/">Home</button>
             </div>
         </mat-card-content>
-     <mat-card-actions>
-        <a routerLink="/register">Vous inscrire ?</a>
-    </mat-card-actions>
+        <mat-card-actions *ngIf="isLoggedIn">
+            <button mat-button color="primary" routerLink="/register">Vous inscrire ?</button>
+        </mat-card-actions>
     </mat-card>
 </div>
 

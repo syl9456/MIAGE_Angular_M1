@@ -16,7 +16,6 @@
 button{
   margin: 10px;
   border-radius: 8px;
-
   box-shadow: 2px 3px rgb(11, 22, 10, 0.25);
 }
 
@@ -29,6 +28,6 @@ button{
 
 .main-card{
   text-align: center;
-  width:20%;
+  width:30%;
 }
 
