@@ -15,14 +15,14 @@
             (ngSubmit)="f.form.valid && onSubmit()"
             novalidate>
 
-                <div lass="form-input">
-                    <mat-form-field hintLabel="Max 20 caracteres" appearance="fill">
+                <div class="form-input">
+                    <mat-form-field hintLabel="Max 20 caracteres" appearance="outline">
                         <mat-label for="username">Nom d'utilisateur</mat-label>
                         <input matInput 
                         #usernameInput 
                         type="text"
                         class="form-control"
-                        placeholder="xXdimitriXx"
+                        placeholder=" xXdimitriXx"
                         name="username"
                         required
                         [(ngModel)]="form.username"
@@ -33,8 +33,8 @@
                     </mat-form-field>
                 </div>
 
-                <div lass="form-input">
-                    <mat-form-field hintLabel="Min 9 caracteres" appearance="fill">
+                <div class="form-input">
+                    <mat-form-field hintLabel="Min 9 caracteres" appearance="outline">
                         <mat-label for="password">Mot de passe</mat-label>
                         <input 
                             matInput
@@ -69,7 +69,7 @@
                 <button mat-raised-button color="accent" routerLink="/">Home</button>
             </div>
         </mat-card-content>
-        <mat-card-actions *ngIf="isLoggedIn">
+        <mat-card-actions *ngIf="!isLoggedIn">
             <button mat-button color="primary" routerLink="/register">Vous inscrire ?</button>
         </mat-card-actions>
     </mat-card>
