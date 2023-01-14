@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AssignmentsService } from './shared/services/assignments.service';
 import { AuthService } from './shared/services/auth.service';
 import { TokenStorageService } from './shared/services/token-storage.service';
+import { DOCUMENT } from '@angular/common';
 
 export class ButtonOverviewExample {}
 
@@ -19,11 +20,13 @@ export class AppComponent {
   isUser = false;
   isModerator = false;
   username:string;
+  public theme: string = 'light-theme';
 
   constructor(private router: Router,
               private assignmentsService: AssignmentsService,
               private authService: AuthService,
-              private tokenStorageService: TokenStorageService) {}
+              private tokenStorageService: TokenStorageService,
+              @Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -60,5 +63,26 @@ export class AppComponent {
     logout(): void {
       this.tokenStorageService.signOut();
       window.location.reload();
+    }
+
+
+    toggleTheme() {
+      if (this.theme === 'light-theme') {
+        this.selectDarkTheme();
+      } else {
+        this.selectLightTheme();
+      }
+    }
+    
+    selectLightTheme(){
+      this.theme = 'light-theme';
+      this.document.body.classList.remove('dark-theme');
+      this.document.body.classList.add('light-theme');
+    }
+
+    selectDarkTheme(){
+      this.theme = 'dark-theme';
+      this.document.body.classList.remove('light-theme');
+      this.document.body.classList.add('dark-theme');
     }
 }

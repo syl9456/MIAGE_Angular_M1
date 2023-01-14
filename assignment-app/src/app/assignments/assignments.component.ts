@@ -28,7 +28,7 @@ export class AssignmentsComponent implements OnInit {
   assignmentSelectionne:Assignment;
   assignments:Assignment[];
   tableAssignments: any;
-  columnsToDisplay = ["nom", "matiere", "dateDeRendu", "rendu"];
+  columnsToDisplay = ["nom", "matiere", "rendu", "dateDeRendu"];
 
   rechercheNom: string = "";
   rechercheMatiere: string = "";
@@ -79,8 +79,8 @@ export class AssignmentsComponent implements OnInit {
   }
 
   applyFilter() : void {
-    //this.rechercheNom = this.rechercheNom.trim(); // Remove whitespace
-    //this.rechercheNom = this.rechercheNom.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    //this.rechercheNom = this.rechercheNom.trim();
+    //this.rechercheNom = this.rechercheNom.toLowerCase();
     this.tableAssignments.filter = this.rechercheNom + this.rechercheMatiere;
     console.log(this.tableAssignments.filter);
     console.log(this.tableAssignments.filteredData);

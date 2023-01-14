@@ -2,7 +2,7 @@
     <mat-card class="main-card">
         <mat-card-header>
             <mat-card-title>
-                <h1>Enregistrement</h1>
+                <h1>Inscription</h1>
             </mat-card-title>
         </mat-card-header>
         <img  mat-card-md-image id="profile-img"
@@ -17,7 +17,7 @@
                 
                 <div class="form-input">
                     <mat-form-field hintLabel="Max 20 caracteres" appearance="fill">
-                        <mat-label for="inputName">Username</mat-label>
+                        <mat-label for="inputName">Nom d'utilisateur</mat-label>
                         <input matInput 
                             #usernameInput
                             type="text"
@@ -52,7 +52,7 @@
 
                 <div class="form-input">
                     <mat-form-field hintLabel="Min 9 caracteres" appearance="fill">
-                        <mat-label for="inputPassword">Password</mat-label>
+                        <mat-label for="inputPassword">Mot de passe</mat-label>
                         <input matInput
                             #passwordInput
                             [type]="hidePass ? 'password' : 'text'"
@@ -72,16 +72,17 @@
                 </div>
 
                 <div>
-                    <button mat-button color="primary" type="submit">Register</button>
+                    <button mat-button color="primary" type="submit">Valider</button>
 
                     <div *ngIf="f.submitted && isSignUpFailed">
-                        <strong>Registration failed!</strong> Please try again. {{errorMessage}}
+                        <strong>Erreur inscription !</strong> Veuillez rééssayer {{errorMessage}}
                     </div>
 
                 </div>
             </form>
             <div *ngIf="isSuccessful">
-                <strong>Registration successful!</strong> Please login.
+                <strong>Inscription prise en compte !</strong> 
+                <a routerLink="login">Veuillez vous connecter</a>
             </div>
         </mat-card-content>
     </mat-card>

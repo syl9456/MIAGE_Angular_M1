@@ -17,7 +17,7 @@
 
                 <div lass="form-input">
                     <mat-form-field hintLabel="Max 20 caracteres" appearance="fill">
-                        <mat-label for="username">Username</mat-label>
+                        <mat-label for="username">Nom d'utilisateur</mat-label>
                         <input matInput 
                         #usernameInput 
                         type="text"
@@ -35,7 +35,7 @@
 
                 <div lass="form-input">
                     <mat-form-field hintLabel="Min 9 caracteres" appearance="fill">
-                        <mat-label for="password">Password</mat-label>
+                        <mat-label for="password">Mot de passe</mat-label>
                         <input 
                             matInput
                             [type]="hidePass ? 'password' : 'text'"
@@ -57,17 +57,20 @@
                 </div>
 
                 <div>
-                    <button mat-button color="primary" type="submit">Login</button>
+                    <button mat-button color="primary" type="submit">Se connecter</button>
                     <div *ngIf="isLoginFailed && f.submitted">
-                        Login Failed : {{errorMessage}}
+                        Erreur connexion : {{errorMessage}}
                     </div>
                 </div>
 
             </form>
             <div *ngIf="isLoggedIn">
-                Login Successful
+                Connexion réussie !
             </div>
         </mat-card-content>
+     <mat-card-actions>
+        <a routerLink="/register">Vous inscrire ?</a>
+    </mat-card-actions>
     </mat-card>
 </div>
 

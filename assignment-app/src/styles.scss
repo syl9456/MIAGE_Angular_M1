@@ -1,0 +1,35 @@
+@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+@include mat.core();
+
+
+$dark-theme: mat-dark-theme((
+ color: (
+   primary: mat.define-palette(mat.$teal-palette),
+   secondary: mat.define-palette(mat.$teal-palette),
+   accent: mat.define-palette(mat.$teal-palette),
+   warn: mat.define-palette(mat.$red-palette)
+ ),
+  // Only include `typography` and `density` in the default dark theme.
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+
+$light-theme: mat-light-theme((
+ color: (
+   primary: mat.define-palette(mat.$teal-palette),
+   secondary: mat.define-palette(mat.$teal-palette),
+   accent: mat.define-palette(mat.$teal-palette),
+   warn: mat.define-palette(mat.$red-palette)
+ ),
+));
+
+@include angular-material-theme($light-theme);
+
+.dark-theme {
+  @include angular-material-color($dark-theme);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -30,7 +30,10 @@
             </ng-template>
 
             <nav>
-                <button mat-stroked-button color="primary" type="submit" [disabled]="!isUser()" routerLink = "/assignment/{{assignmentTransmis.id}}/edit">
+                <button *ngIf="!isUser()" mat-stroked-button color="primary" routerLink ='/login'>
+                    Pour editer, connectez-vous !
+                </button>
+                <button *ngIf="isUser()" mat-stroked-button color="primary" routerLink = '/assignment/{{assignmentTransmis.id}}/edit'>
                     Edit
                 </button>
             </nav>
