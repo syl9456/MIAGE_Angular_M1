@@ -25,8 +25,8 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        this.reloadPage();
         this.router.navigate(['login']);
+        window.location.reload();
         console.log("Utilisateur inscrit ");
       },
       err => {
@@ -34,9 +34,5 @@ export class RegisterComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     );
-  }
-  
-  reloadPage(): void {
-    window.location.reload();
   }
 }
