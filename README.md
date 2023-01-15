@@ -25,18 +25,16 @@ La console affichera normalement les adresses sûr lesquelles se rendre pour voi
 
 ## HEBERGEMENT 
 
-- Pour l'hebergement nous avons creer 3 repos, 1 pour chaques applications : 
+- Pour l'hebergement nous avions premierement creer 3 repos, 1 pour chaques applications : 
 
-https://github.com/syl9456/assignment-app-Heroku
-https://github.com/syl9456/api-assignment-Heroku
-https://github.com/syl9456/api-auth-Heroku
+Puis nous nous sommes rendus compte que les repos pouvaient être divisés dans les sites d'hebergement. 
+Celui ci est donc le final et le plus complet.
 
-Les versions sur ces git change de celle-ci car les url ne sont pas les même... 
+Les 2 apis sont hebergées comme des webServices et le front comme un site web statique avec Render.com.
 
-Les 2 apis sont hebergées avec Render.com comme des WebServices
-Et le front : assignment-app est hebergé sur netilify :
-https://roaring-beignet-d972e5.netlify.app
-
+lien du site : https://assignment-app-stat.onrender.com/
+lien de l'api d'authentification : https://api-auth-9elh.onrender.com
+lien de l'api pour récupérer les assignments : https://api-assignment.onrender.com
 
 
 # Repartition  des tâches 
@@ -52,11 +50,13 @@ https://www.bezkoder.com/node-js-angular-14-jwt-auth/
 
 
 api-auth :
-Il a beaucoup de reprises, mais ajustées pour ce que l'on devait en faire. Il y a eu un mélange entre les notions de l'api donnée en cours et ces tutoriels. 
-L'authentification et l'inscription se font avec une base de données mongoDB. Et utilise un token de connexion, les requetes sont normalement un peu sécurisées et le mot de passe est hashé. Cependant la clé de hashage n'est pas bien dure a trouver...
+Il a beaucoup de reprises des tutoriels, mais ajustées pour ce que l'on devait en faire. Il y a eu un mélange entre les notions de l'api donnée en cours et ces tutoriels. 
+L'authentification et l'inscription se font avec une base de données mongoDB. Et utilise un token de connexion JWT, les requetes sont normalement un peu sécurisées et le mot de passe est hashé. Cependant la clé de hashage n'est pas bien dure a trouver...
 
 api-assignment : 
-A peu près la même que le cours a quelques choses près comme l'ajout de plus de champs dans les assignments, et quelques changements dans server.js .
+A peu près la même que le cours a quelques choses près comme l'ajout de plus de champs dans les assignments, et quelques changements dans server.js pour les options de "cors".
+
+Changements des themes avec le "dark mode".
 
 
 
@@ -70,19 +70,25 @@ Mise en forme des pages sur le front en général.
 
 #  Plus et moins de l'appli : 
 
--Plus :
-Elle réussit a avoir un back end protégé pour les utilisateurs et avec du JWT.
+ - Plus :
+Elle réussit a avoir un back end protégé pour les utilisateurs et avec un token JWT.
 L'interface est plutôt jolie.
-L'hebergement sur une plateforme autre que heroku car celui-ci semble être payant maintenant.
+L'hebergement sur une plateforme autre que heroku, car celui-ci semble être payant maintenant.
 Le lancement avec des .bat qui sont plus rapides que de taper toutes les commandes.
-Les fonctionnalités sont toutes là (à part les images de profs et matieres).
+Les fonctionnalités sont toutes là (à part les images de professeurs et matieres).
+La création de deux api différentes, nous pensons que ce n'était pas nécéssaire cependant nous avons voulu repartir de 0 pour mieux comprendre les api et le fonctionnment du backend. La bonne chose est que les services sont différents, si l'un ne marche pas, l'autre lui peut marcher.
+Le tri des assignement en fonction des différentes colonnes, nom, matière, rendu, date limite de rendu.
+La recherche d'assignement avec le nom ou la matière de l'assignment. 
+La création de deux thèmes pour le site, un "light" et un "dark" pour créer un "dark mode". Grâce à https://materialtheme.arcsine.dev/ et https://material.angular.io/guide/theming.
+Utilisation de la pagination avec les outils de angular material.
+Utilisation des card, de la tool-bar, de la table etc...
+Le site est petit peu responsive grâce a angular, mais ce n'est pas du grand art.
 
 
--Moins : 
-La création de deux api car manque d'experience et trop peu de temps vers la fin pour rassembler les deux api en une. 
-Mais avoir la connexion et les assignments sur deux api différentes n'est pas non plus trop mal !
-Certaines redirections qui ne redirigent pas grand chose. Problemes sur les routes surrement mais nous n'arrivons pas a trouver les erreurs.
-La creation de plusieurs repos git, et la mauvaise utilisation de celui-ci (Nous avons dû refaire un repos car l'ancien était "corrompu" a cause de mauvais .gitignore)
+
+ - Moins : 
+Certaines redirections qui ne redirigent mal, car certains problèmes avec les routes quand on heberge sur les sites. Nous n'arrivons pas a trouver exactement le problème.
+Pas d'images pour les matieres et professseurs. Nous avions voulu enregistrer des images en base64 dans mongoDB, mais nous n'y sommes pas arrivés.
 
 
 
