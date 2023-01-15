@@ -87,7 +87,7 @@ Le site est petit peu responsive grâce a angular, mais ce n'est pas du grand ar
 
 
  - Moins : 
-Certaines redirections qui ne redirigent mal, car certains problèmes avec les routes quand on heberge sur les sites. Nous n'arrivons pas a trouver exactement le problème.
+Certaines redirections qui ne redirigent mal, car certains problèmes avec les routes quand on heberge sur les sites. Le problème semble venir du routing module qui ne marche pas comme voulu sur le site d'hebergement.
 Pas d'images pour les matieres et professseurs. Nous avions voulu enregistrer des images en base64 dans mongoDB, mais nous n'y sommes pas arrivés.
 
 
